@@ -1,15 +1,12 @@
 import React from "react";
 import { MapView, useMapData, useMap, Label } from "@mappedin/react-sdk";
+import { BrowserRouter as Router, Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 import "@mappedin/react-sdk/lib/esm/index.css";
 import FloorSelector from "./FloorSelector";
+import CustomLabels from "./Label";
+import FloorNavigation from "./FloorNavigation";
+import FloorView from "./FloorView";
 
-function MyCustomComponent() {
-  const { mapData } = useMap();
-
-  return mapData.getByType("space").map((space) => {
-    return <Label target={space.center} text={space.name} />;
-  });
-}
 
 export default function App() {
   // See Demo API key Terms and Conditions
@@ -28,15 +25,16 @@ export default function App() {
     return <div>{error.message}</div>;
   }
 
-  mapData!.getByType("floor").map((floor, idx) => {
-    console.log(floor.id);
-    console.log(floor.name);
-  });
-
-  return mapData ? (
-    <MapView mapData={mapData}>
-      <FloorSelector />
-      <MyCustomComponent />
-    </MapView>
-  ) : null;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/navigate/:id/:target" element={
+          <FloorNavigation/>
+        }/>
+        <Route path="/view/:id" element={
+          <FloorView/>
+        }/>
+      </Routes>
+    </Router>
+  );
 }
