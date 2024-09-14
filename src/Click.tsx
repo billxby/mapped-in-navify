@@ -1,14 +1,31 @@
 import React from "react";
 import { MapView, useMapData, useMap, Label } from "@mappedin/react-sdk";
-import { BrowserRouter as Router, Route, Routes, useLocation, useSearchParams } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useSearchParams, useNavigate } from "react-router-dom";
 import "@mappedin/react-sdk/lib/esm/index.css";
 import FloorSelector from "./FloorSelector";
 
-export default function ClickPoints() {
+
+interface ClickPointsProps{
+    id: string;
+};
+
+export default function ClickPoints({ id } : ClickPointsProps) {
     const { mapView } = useMap();
+    const navigate = useNavigate();
   
     return mapView.on('click', async e => {
-        console.log('Clicked: Lat: ' + e.coordinate.latitude + ' Lon: ' + e.coordinate.longitude);
+        // console.log('Clicked: Lat: ' + e.coordinate.latitude + ' Lon: ' + e.coordinate.longitude);
+
+        // console.log(id);
+
+        // console.log(e.spaces);
+        // console.log(e.spaces[0]);
+        // console.log(e.spaces[0].id);
+        // if (e.spaces[0].name) {
+        //     console.log(e.spaces[0].name);
+        // }
+        
+        navigate("/navigate/" + id + "/" + (e.spaces[0].id));
 
         // if (e.spaces[0].name) {
         //     mapView.Labels.add(e.coordinate, e.spaces[0].name);

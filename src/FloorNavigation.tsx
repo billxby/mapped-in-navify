@@ -5,6 +5,8 @@ import "@mappedin/react-sdk/lib/esm/index.css";
 import FloorSelector from "./FloorSelector";
 import CustomLabels from "./Label";
 import DrawNavigation from "./DrawNavigation";
+import ClickPoints from "./Click";
+import HoverFloor from "./FloorHover";
 
 export default function FloorNavigation() {
     // See Demo API key Terms and Conditions
@@ -30,7 +32,9 @@ export default function FloorNavigation() {
             <MapView mapData={mapData}>
               <FloorSelector />
               <CustomLabels />
-              <DrawNavigation/>
+              <DrawNavigation id={id + ""} target={target + ""}/>
+              <ClickPoints id={id + ""}/>
+              <HoverFloor/>
             </MapView>
           ) : <div>No map exists</div>
     );
