@@ -20,7 +20,7 @@ export default function FloorNavigation() {
     const { id, target } = useParams();
 
     if (isLoading) {
-        return <div>Loading... {id} and {target}</div>;
+        return <div style={{fontSize:250,}}>Loading... {id} and {target}</div>;
     }
 
     if (error) {

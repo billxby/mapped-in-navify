@@ -19,7 +19,7 @@ export default function FloorView() {
     const { id } = useParams();
 
     if (isLoading) {
-        return <div>Loading... {id}</div>;
+        return <div style={{fontSize:250,}}>Loading... {id}</div>;
     }
 
     if (error) {
