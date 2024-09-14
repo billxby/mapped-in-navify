@@ -1,11 +1,11 @@
-import React from "react";
-import { MapView, useMapData, useMap, Label } from "@mappedin/react-sdk";
-import { BrowserRouter as Router, Route, Routes, useLocation, useSearchParams, useParams } from "react-router-dom";
+
+import { MapView, useMapData, } from "@mappedin/react-sdk";
+import { useParams } from "react-router-dom";
 import "@mappedin/react-sdk/lib/esm/index.css";
 import FloorSelector from "./FloorSelector";
 import CustomLabels from "./Label";
-import ClickPoints from "./Click";
-import HoverFloor from "./FloorHover";
+// import ClickPoints from "./Click";
+// import HoverFloor from "./FloorHover";
 
 export default function FloorView() {
     // See Demo API key Terms and Conditions

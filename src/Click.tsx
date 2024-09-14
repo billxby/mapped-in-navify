@@ -1,8 +1,7 @@
-import React from "react";
-import { MapView, useMapData, useMap, Label } from "@mappedin/react-sdk";
-import { BrowserRouter as Router, Route, Routes, useLocation, useSearchParams, useNavigate } from "react-router-dom";
+
+import { useMap, } from "@mappedin/react-sdk";
+import { useNavigate } from "react-router-dom";
 import "@mappedin/react-sdk/lib/esm/index.css";
-import FloorSelector from "./FloorSelector";
 
 
 interface ClickPointsProps{
@@ -13,7 +12,7 @@ export default function ClickPoints({ id } : ClickPointsProps) {
     const { mapView } = useMap();
     const navigate = useNavigate();
   
-    return mapView.on('click', async e => {
+    mapView.on('click', async e => {
         // console.log('Clicked: Lat: ' + e.coordinate.latitude + ' Lon: ' + e.coordinate.longitude);
 
         // console.log(id);
@@ -33,4 +32,6 @@ export default function ClickPoints({ id } : ClickPointsProps) {
         //     mapView.Labels.add(e.coordinate, 'Clicked: Lat: ' + e.coordinate.latitude + ' Lon: ' + e.coordinate.longitude);
         // }
     });
+
+    return null;
   }

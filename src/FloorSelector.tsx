@@ -1,7 +1,7 @@
 import { useMap } from "@mappedin/react-sdk";
 
 export default function FloorSelector() {
-  const { mapData, mapView } = useMap();
+  const { mapView } = useMap();
   mapView!.setFloor("m_b4e5ebf844208588");
 
   return(<div></div>);
