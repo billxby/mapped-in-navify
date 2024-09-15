@@ -1,6 +1,7 @@
 import { 
     Navigation, useMap, 
 } from "@mappedin/react-sdk";
+import { TDirectionInstruction } from "@mappedin/react-sdk/mappedin-js/src";
 // import { TDirectionInstruction } from "@mappedin/react-sdk/mappedin-js/src";
 // import {
 //     FlatList,
@@ -54,11 +55,22 @@ export default function DrawNavigation(props: DrawNavigationProps) {
     
     if (space1 != undefined && space2 != undefined) {
         const directions = mapView.getDirections(space1, space2);
-        console.log(directions?.instructions);
 
         // const renderItem: ListRenderItem<TDirectionInstruction> = ({item: step}) => (
         //     <Text>{step.action.type} + " " + {step.action.direction} + " " + {step.distance}</Text>
         // );
+
+        if (directions) {
+            // Extracting direction instructions
+            const instructions = directions.instructions.map((instruction: TDirectionInstruction) => ({
+                bearing: instruction.action.bearing,
+                type: instruction.action.type,
+                distance: instruction.distance
+            }));
+
+            console.log(JSON.stringify(instructions));
+        
+        }
 
         return directions ? 
             <div>
