@@ -22,7 +22,7 @@ export default function FloorView() {
     console.log(x);
 
     if (isLoading) {
-        return <div style={{fontSize:250,}}>Loading... {x} {y}</div>;
+        return <div style={{fontSize:20,}}>Loading... {x} {y}</div>;
     }
 
     if (error) {

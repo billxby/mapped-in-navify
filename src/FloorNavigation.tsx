@@ -20,7 +20,7 @@ export default function FloorNavigation() {
     const { x, y, target } = useParams();
 
     if (isLoading) {
-        return <div style={{fontSize:250,}}>Loading... {x} {y} and {target}</div>;
+        return <div style={{fontSize:20,}}>Loading... {x} {y} and {target}</div>;
     }
 
     if (error) {

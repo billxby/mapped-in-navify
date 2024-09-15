@@ -19,7 +19,7 @@ export default function App() {
   });
 
   if (isLoading) {
-    return <div style={{fontSize:250,}}>Loading...</div>;
+    return <div style={{fontSize:20,}}>Loading...</div>;
   }
 
   if (error) {
