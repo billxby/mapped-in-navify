@@ -40,5 +40,7 @@ export default function DrawNavigationSteps(props: DrawNavigationStepsProps) {
             </div>;
         }
     }
-    return null;
+    return <div className="ChrisMcdonaldsTheGoat">
+        NAN
+    </div>;
 }
