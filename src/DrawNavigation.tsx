@@ -12,18 +12,20 @@ import {
 // } from 'react-native';
 
 interface DrawNavigationProps {
-    id: string;
+    x: number;
+    y: number;
     target: string;
 };
 
 export default function DrawNavigation(props: DrawNavigationProps) {
     const { mapData, mapView } = useMap();
 
-    console.log(props.id);
-    console.log(props.target);
+    // console.log(props.id);
+    // console.log(props.target);
 
-    const space1 = mapData.getByType("space").filter((space) => space.id == props.id)[0];
+    // const space1 = mapData.getByType("space").filter((space) => space.id == props.id)[0];
     const space2 = mapData.getByType("space").filter((space) => space.id == props.target)[0];
+    const space1 = mapView.createCoordinate(props.x, props.y);
     
     // console.log(space2.floor);
 

@@ -6,6 +6,6 @@ export default function CustomLabels() {
     const { mapData } = useMap();
   
     return mapData.getByType("space").map((space) => {
-      return <Label target={space.center} text={space.name} />;
+      return <Label target={space.center} text={space.name}/>;
     });
   }

@@ -5,10 +5,11 @@ import "@mappedin/react-sdk/lib/esm/index.css";
 
 
 interface ClickPointsProps{
-    id: string;
+    x: number;
+    y: number;
 };
 
-export default function ClickPoints({ id } : ClickPointsProps) {
+export default function ClickPoints(props : ClickPointsProps) {
     const { mapView } = useMap();
     const navigate = useNavigate();
   
@@ -24,7 +25,7 @@ export default function ClickPoints({ id } : ClickPointsProps) {
         //     console.log(e.spaces[0].name);
         // }
         
-        navigate("/navigate/" + id + "/" + (e.spaces[0].id));
+        navigate("/navigate/" + props.x + "/" + props.y + "/" + (e.spaces[0].id));
 
         // if (e.spaces[0].name) {
         //     mapView.Labels.add(e.coordinate, e.spaces[0].name);

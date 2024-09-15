@@ -6,6 +6,7 @@ import "@mappedin/react-sdk/lib/esm/index.css";
 // import CustomLabels from "./Label";
 import FloorNavigation from "./FloorNavigation";
 import FloorView from "./FloorView";
+import FloorNavigationSteps from "./FloorNavigationSteps";
 
 
 export default function App() {
@@ -28,11 +29,14 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/navigate/:id/:target" element={
+        <Route path="/navigate/:x/:y/:target" element={
           <FloorNavigation/>
         }/>
-        <Route path="/view/:id" element={
+        <Route path="/view/:x/:y" element={
           <FloorView/>
+        }/>
+        <Route path="/navigate/:x/:y/:target/steps" element={
+          <FloorNavigationSteps/>
         }/>
       </Routes>
     </Router>

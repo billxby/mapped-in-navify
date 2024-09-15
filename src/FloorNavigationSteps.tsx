@@ -2,13 +2,9 @@
 import { MapView, useMapData } from "@mappedin/react-sdk";
 import { useParams } from "react-router-dom";
 import "@mappedin/react-sdk/lib/esm/index.css";
-import FloorSelector from "./FloorSelector";
-// import CustomLabels from "./Label";
-import LocationLabel from "./LocationLabel";
-// import ClickPoints from "./Click";
-// import HoverFloor from "./FloorHover";
+import DrawNavigationSteps from "./MoveNavigation";
 
-export default function FloorView() {
+export default function FloorNavigationSteps() {
     // See Demo API key Terms and Conditions
     // https://developer.mappedin.com/v6/demo-keys-and-maps/
     const { isLoading, error, mapData } = useMapData({
@@ -17,12 +13,10 @@ export default function FloorView() {
         mapId: '66ce20fdf42a3e000b1b0545'
     });
 
-    const { x, y } = useParams();
-
-    console.log(x);
+    const { x, y, target } = useParams();
 
     if (isLoading) {
-        return <div style={{fontSize:250,}}>Loading... {x} {y}</div>;
+        return <div style={{fontSize:250,}}>NAN</div>;
     }
 
     if (error) {
@@ -31,14 +25,12 @@ export default function FloorView() {
 
     const xCoord = x ? parseFloat(x) : parseFloat("0");
     const yCoord = y ? parseFloat(y) : parseFloat("0");
-
+    
 
     return (
         mapData ? (
             <MapView mapData={mapData}>
-              <FloorSelector />
-              {/* <CustomLabels /> */}
-              ((xCoord != undefined && yCoord != undefined) ? <LocationLabel x={xCoord} y={yCoord}/> : null)
+              <DrawNavigationSteps x={xCoord} y={yCoord} target={target + ""}/>
             </MapView>
           ) : <div>No map exists</div>
     );

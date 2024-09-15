@@ -17,23 +17,26 @@ export default function FloorNavigation() {
         mapId: '66ce20fdf42a3e000b1b0545'
     });
 
-    const { id, target } = useParams();
+    const { x, y, target } = useParams();
 
     if (isLoading) {
-        return <div style={{fontSize:250,}}>Loading... {id} and {target}</div>;
+        return <div style={{fontSize:250,}}>Loading... {x} {y} and {target}</div>;
     }
 
     if (error) {
         return <div>{error.message}</div>;
     }
 
+    const xCoord = x ? parseFloat(x) : parseFloat("0");
+    const yCoord = y ? parseFloat(y) : parseFloat("0");
+
     return (
         mapData ? (
             <MapView mapData={mapData}>
               <FloorSelector />
               <CustomLabels />
-              <DrawNavigation id={id + ""} target={target + ""}/>
-              <ClickPoints id={id + ""}/>
+              ((xCoord != undefined && yCoord != undefined) ? <DrawNavigation x={xCoord} y={yCoord} target={target + ""}/> : null)
+              ((xCoord != undefined && yCoord != undefined) ? <ClickPoints x={xCoord} y={yCoord}/>)
               <HoverFloor/>
             </MapView>
           ) : <div>No map exists</div>
