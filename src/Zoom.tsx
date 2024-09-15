@@ -1,9 +1,9 @@
-import { useEvent, useMap } from "@mappedin/react-sdk";
+import { useMap } from "@mappedin/react-sdk";
 import { useEffect, useState } from "react";
 
 export default function CameraEvents() {
   const { mapView, mapData } = useMap();
-  const [zoomLevel, setZoomLevel] = useState(
+  const [zoomLevel,] = useState(
     Math.round(mapView.Camera.zoomLevel)
   );
   
@@ -29,25 +29,6 @@ export default function CameraEvents() {
       });
     }
   }, [mapView, mapData, initialZoomLevel]);
-
-  useEvent("camera-change", (event) => {
-    console.log(
-      "camera-change",
-      event.bearing,
-      event.pitch,
-      event.zoomLevel,
-      event.center
-    );
-    setZoomLevel(Math.round(event.zoomLevel));
-    console.log(zoomLevel);
-  });
-
-  useEvent("click", (event) => {
-    const { labels, spaces } = event;
-    if (labels.length === 0 && spaces.length >= 1) {
-      mapView.Camera.focusOn(spaces);
-    }
-  });
 
   return (
     <div
