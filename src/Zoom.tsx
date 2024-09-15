@@ -8,7 +8,7 @@ interface CameraEventsProps{
 
 export default function CameraEvents(props: CameraEventsProps) {
   const { mapView, mapData } = useMap();
-  const [zoomLevel,] = useState(
+  const [] = useState(
     Math.round(mapView.Camera.zoomLevel)
   );
   
