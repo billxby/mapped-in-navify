@@ -2,6 +2,7 @@ import {
     Navigation, useMap, 
 } from "@mappedin/react-sdk";
 import { TDirectionInstruction } from "@mappedin/react-sdk/mappedin-js/src";
+declare const window: any;
 // import { TDirectionInstruction } from "@mappedin/react-sdk/mappedin-js/src";
 // import {
 //     FlatList,
@@ -69,7 +70,12 @@ export default function DrawNavigation(props: DrawNavigationProps) {
             }));
 
             console.log(JSON.stringify(instructions));
-        
+
+            // Check if running in a WebView with Flutter
+            if (window.flutter_inappwebview) {
+                // Sending the JSON string to the Flutter app via the JavaScript channel
+                window.flutter_inappwebview.callHandler('steps', JSON.stringify(instructions));
+            }
         }
 
         return directions ? 
