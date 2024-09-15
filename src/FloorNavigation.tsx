@@ -7,6 +7,7 @@ import CustomLabels from "./Label";
 import DrawNavigation from "./DrawNavigation";
 import ClickPoints from "./Click";
 import HoverFloor from "./FloorHover";
+import CameraEvents from "./Zoom";
 
 export default function FloorNavigation() {
     // See Demo API key Terms and Conditions
@@ -33,6 +34,7 @@ export default function FloorNavigation() {
     return (
         mapData ? (
             <MapView mapData={mapData}>
+            <CameraEvents />
               <FloorSelector />
               <CustomLabels />
               ((xCoord != undefined && yCoord != undefined) ? <DrawNavigation x={xCoord} y={yCoord} target={target + ""}/> : null)

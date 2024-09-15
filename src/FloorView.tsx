@@ -5,6 +5,7 @@ import "@mappedin/react-sdk/lib/esm/index.css";
 import FloorSelector from "./FloorSelector";
 // import CustomLabels from "./Label";
 import LocationLabel from "./LocationLabel";
+import CameraEvents from "./Zoom";
 // import ClickPoints from "./Click";
 // import HoverFloor from "./FloorHover";
 
@@ -36,6 +37,7 @@ export default function FloorView() {
     return (
         mapData ? (
             <MapView mapData={mapData}>
+            <CameraEvents />
               <FloorSelector />
               {/* <CustomLabels /> */}
               ((xCoord != undefined && yCoord != undefined) ? <LocationLabel x={xCoord} y={yCoord}/> : null)
