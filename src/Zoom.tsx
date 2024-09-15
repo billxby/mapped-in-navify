@@ -59,7 +59,7 @@ export default function CameraEvents() {
         display: "flex",
         alignItems: "center",
         gap: "8px",
-        background: "rgba(255, 255, 255, 0.8)",
+        color: 'black',
         padding: "10px",
         borderRadius: "5px",
         boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.2)",
