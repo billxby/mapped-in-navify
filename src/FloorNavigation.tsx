@@ -34,7 +34,7 @@ export default function FloorNavigation() {
     return (
         mapData ? (
             <MapView mapData={mapData}>
-            <CameraEvents />
+              ((xCoord != undefined && yCoord != undefined) ? <CameraEvents x={xCoord} y={yCoord}/> : null)
               <FloorSelector />
               <CustomLabels />
               ((xCoord != undefined && yCoord != undefined) ? <DrawNavigation x={xCoord} y={yCoord} target={target + ""}/> : null)

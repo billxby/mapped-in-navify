@@ -37,7 +37,7 @@ export default function FloorView() {
     return (
         mapData ? (
             <MapView mapData={mapData}>
-            <CameraEvents />
+              ((xCoord != undefined && yCoord != undefined) ? <CameraEvents x={xCoord} y={yCoord}/> : null)
               <FloorSelector />
               {/* <CustomLabels /> */}
               ((xCoord != undefined && yCoord != undefined) ? <LocationLabel x={xCoord} y={yCoord}/> : null)

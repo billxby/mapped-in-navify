@@ -1,20 +1,25 @@
 import { useMap } from "@mappedin/react-sdk";
 import { useEffect, useState } from "react";
 
-export default function CameraEvents() {
+interface CameraEventsProps{
+  x: number;
+  y: number;
+};
+
+export default function CameraEvents(props: CameraEventsProps) {
   const { mapView, mapData } = useMap();
   const [zoomLevel,] = useState(
     Math.round(mapView.Camera.zoomLevel)
   );
   
-  const initialZoomLevel = 19;  // Set your desired initial zoom level here
+  const initialZoomLevel = 21;  // Set your desired initial zoom level here
 
   useEffect(() => {
     if (mapView && mapData) {
-      // Set initial zoom level and center the camera when the map loads
+      // Set initial zoom level and center the camera when the map loadsƒ
       mapView.Camera.animateTo(
         {
-          center: mapView.Camera.center,
+          center: mapView.createCoordinate(props.x, props.y),
           zoomLevel: initialZoomLevel,  // Use the initial zoom level
         },
         { duration: 0 }  // No animation on initial load
@@ -72,7 +77,6 @@ export default function CameraEvents() {
       >
         Zoom Out
       </button>
-      <p>{zoomLevel}</p>
     </div>
   );
 }
