@@ -3,6 +3,7 @@ import { MapView, useMapData } from "@mappedin/react-sdk";
 import { useParams } from "react-router-dom";
 import "@mappedin/react-sdk/lib/esm/index.css";
 import DrawNavigationSteps from "./MoveNavigation";
+import FloorSelector from "./FloorSelector";
 
 export default function FloorNavigationSteps() {
     // See Demo API key Terms and Conditions
@@ -30,6 +31,7 @@ export default function FloorNavigationSteps() {
     return (
         mapData ? (
             <MapView mapData={mapData}>
+              <FloorSelector />
               <DrawNavigationSteps x={xCoord} y={yCoord} target={target + ""}/>
             </MapView>
           ) : <div>No map exists</div>
