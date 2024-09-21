@@ -2,6 +2,8 @@
 Built with React + TypeScript + Vite. This was custom-made during Hack The North 2024 
 -> Check out our project, [Navify](https://devpost.com/software/navify-6mhk41)
 
+![Navify Thumbnails](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/026/299/datas/gallery.jpg)
+
 ## How does it work?
 #### Get a location on the map, e.g. (use longitude and latitude):
 - https://mapped-in-navify.vercel.app/view/43.47325723676813/-80.53962417348217
