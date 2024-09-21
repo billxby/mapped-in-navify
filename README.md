@@ -1,5 +1,6 @@
 # This is a MappedIn API endpoint with Vercel to the Waterloo E7 Second Floor Building
-Built with React + TypeScript + Vite
+Built with React + TypeScript + Vite. This was custom-made during Hack The North 2024 
+-> Check out our project, [Navify](https://devpost.com/software/navify-6mhk41)
 
 ## How does it work?
 #### Get a location on the map, e.g. (use longitude and latitude):
