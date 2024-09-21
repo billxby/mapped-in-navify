@@ -5,5 +5,5 @@ Built with React + TypeScript + Vite
 #### Get a location on the map, e.g. (use longitude and latitude):
 - https://mapped-in-navify.vercel.app/view/43.47325723676813/-80.53962417348217
 #### Get navigation to a location on the map
-- https://mapped-in-navify.vercel.app/navigate/43.47325723676813/-80.53962417348217/NONE
+- https://mapped-in-navify.vercel.app/navigate/43.47325723676813/-80.53962417348217/NONE \n
 With this option, you can select the room you wish to navigate to 
